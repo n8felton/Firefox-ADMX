@@ -1,0 +1,108 @@
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target prefix="firefoxadmx" namespace="FirefoxADMX" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+  </policyNamespaces>
+  <supersededAdm fileName="" />
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="MOZILLA_FIREFOX" displayName="$(string.MOZILLA_FIREFOX)" />
+    <category name="MOZILLA_FIREFOX_LOCKED" displayName="$(string.MOZILLA_FIREFOX_LOCKED)">
+      <parentCategory ref="MOZILLA_FIREFOX" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE)" key="Software\Policies\Mozilla\Firefox" valueName="Homepage">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+		<enabledValue>
+			<delete />
+		</enabledValue>
+		<disabledValue>
+			<delete />
+		</disabledValue>	  
+      <elements>	  
+        <enum id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" key="Software\Policies\Mozilla\Firefox" valueName="HomepageDisplay" required="true">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE)">
+            <value>
+              <string>BLANK</string>
+            </value>
+          </item>
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE)">
+            <value>
+              <string>CUSTOM</string>
+            </value>
+          </item>
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE)">
+            <value>
+              <string>DEFAULT</string>
+            </value>
+          </item>
+        </enum>
+        <text id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT" key="Software\Policies\Mozilla\Firefox" valueName="CustomHomepage" />
+      </elements>
+    </policy>
+	<policy name="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK)" key="Software\Policies\Mozilla\Firefox" valueName="DisableDefaultCheck">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />		
+	</policy>	
+	<policy name="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT)" key="Software\Policies\Mozilla\Firefox" valueName="DisableImport">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />		
+	</policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES)" key="Software\Policies\Mozilla\Firefox" valueName="DisableUpdate">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <boolean id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" key="Software\Policies\Mozilla\Firefox" valueName="DisableUpdate">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" key="Software\Policies\Mozilla\Firefox" valueName="DisableExtensionsUpdate">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+        <boolean id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_SEARCH" key="Software\Policies\Mozilla\Firefox" valueName="DisableSearchUpdate">
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLE_DM" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLE_DM)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help)" key="Software\Policies\Mozilla\Firefox" valueName="DisableDownloadManager">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS)" key="Software\Policies\Mozilla\Firefox" valueName="DisablePasswordManager">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help)" key="Software\Policies\Mozilla\Firefox" valueName="SupressUpdatePage">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help)" key="Software\Policies\Mozilla\Firefox" valueName="DisableAddonWizard">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help)" key="Software\Policies\Mozilla\Firefox" valueName="DisableTelemetry">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help)" key="Software\Policies\Mozilla\Firefox" valueName="DisableRights">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>	
+  </policies>
+</policyDefinitions>

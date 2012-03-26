@@ -1,0 +1,28 @@
+0.1.0
+- Inital relase to the public
+
+0.1.1
+- Fixed a bug where the script would show errors on Windows XP machines at the login screen.
+- Added functionality to quit the script if Mozilla Firefox wasn't detected as installed.
+- Added the "/qb" and "/qn" switches to be able to show or hide the UI for the Windows XP
+  login screen.
+	* Mimics the MSI command line switches
+	* /qb is unattended but shows the log.
+	* /qn is unattended with no UI at all. (Default)
+- Added support to disable the "Default Browser" prompt. (browser.shell.checkDefaultBrowser)
+
+0.1.2
+- Added option to disable the Add-On Startup Wizard implemented in FF 7 & 8.
+	* extensions.shownSelectionUI
+	* extensions.autoDisableScope
+	
+0.1.3
+- Added option to disable telemetry.
+	* toolkit.telemetry.enabled
+	* toolkit.telemetry.prompted
+	* toolkit.telemetry.rejected
+
+
+0.1.3.1 (Jason Lang)
+- Fixed bug with "browser.rights.3.shown" being set as STRING rather than Boolean. Works as intended now.
+	*toolkit.telemetry.prompted now properly set/working for firefox version(s) through 12.

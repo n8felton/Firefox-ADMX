@@ -1,0 +1,46 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>FirefoxADMX</displayName>
+  <description>Firefox ADMX is a way of allowing centrally managed locked and/or default settings in Firefox via Group Policy and Administrative Templates in Active Directory. Firefox ADMX is a continuation of Firefox ADM by Mark Sammons.</description>
+  <resources>
+    <stringTable>
+      <string id="MOZILLA_FIREFOX">Mozilla Firefox</string>
+      <string id="MOZILLA_FIREFOX_LOCKED">Locked Preferences</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">Custom Homepage</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Blank Page</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Custom Homepage</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Default Page</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Disable Automatic Updates</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Disable Download Manager</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Disables the Download Manager from appearing when you start to download a file.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS">Disable Password Manager</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Allows the customization of the homepage. You can choose to blank the home page or set a custom URL.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supress "Firefox Updated" page after update</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">After updating Firefox, by default it display's a "What's New" page.
+
+If you enable this policy, that page will be supressed.</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Disable Add-On Wizard</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Disables the Add-On Wizard at startup.</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Disable Telemetry</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help">Disables prompt and disables sending data to Mozilla. Disabling this will enable Telemetry.</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS">Disable "Know your rights"</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help">Disables the "Know your rights..." prompt on first run.</string>	  
+    </stringTable>
+    <presentationTable>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Display when Firefox starts</dropdownList>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
+          <label>Custom Homepage</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" defaultChecked="true">Disable Firefox Automatic Update</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" defaultChecked="true">Disable Extensions Updates</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_SEARCH" defaultChecked="true">Disable Search Engine Updates</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
