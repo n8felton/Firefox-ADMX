@@ -1,0 +1,46 @@
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>FirefoxADMX</displayName>
+  <description>Firefox ADMX ist ein Weg um zentral Einstellungen via Gruppenrichtlinen und administrative Vorlagen &#252;ber das Active Directory zu verteilen. Firefox ADMX ist eine Weiterentwicklung der Firefox ADM von Mark Sammons.</description>
+  <resources>
+    <stringTable>
+      <string id="MOZILLA_FIREFOX">Mozilla Firefox</string>
+      <string id="MOZILLA_FIREFOX_LOCKED">Gesperrte Einstellungen</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">Benutzerdefinierte Startseite</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Leere Seite</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Benutzerdefinierte Startseite</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Standardseite</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Deaktiviere Pr&#252;fung nach Standardbrowser</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Deaktiviere Import-Assistenten</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Deaktiviere automatische Updates</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Deaktiviere Download-Manager</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Deaktiviere das Starten des Download-Managers beim Herunterladen einer Datei</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS">Deaktiviere Password-Manager</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Erlaube das Ver&#228;ndern der Startseite. Die Seite kann entweder leer oder mit einer benutzerdefinierten URL geladen werden</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Unterdr&#252;cke "Firefox wurde aktualisiert"-Seite nach einem Update</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">Unterdr&#252;cke die "Was ist neu"-Seite nach einem Update.
+
+Wenn Sie diese Richtlinie aktivieren, wird die Anzeige der folgenden Seite verhindert</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Deaktiviere den Add-On Assistenten</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Deaktiviere den Add-On Assistenten beim Start</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Deaktiviere Telemetrie (Senden von Hintergrunddaten)</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help">Deaktiviere Hinweisfenster, ob im Hintergrund Informationen an Mozilla gesendet werden sollen. Eine Deaktivierung hat die Aktivierund der Telemetrie zur Folge</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS">Deaktiviere den "Kennen Sie Ihre Rechte..."-Hinweis</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help">Deaktiviere "Kennen Sie Ihre Rechte..."-Hinweis beim ersten Start</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Beim Start von Firefox anzeigen</dropdownList>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
+          <label>Benutzerdefinierte Startseite</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" defaultChecked="true">Deaktiviere Firefox-Auto-Update</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" defaultChecked="true">Deaktiviere autom. Updates der Erweiterungen</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_SEARCH" defaultChecked="true">Deaktiviere autom. Updates der Suchmaschinen</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -26,3 +26,10 @@
 0.1.3.1 (Jason Lang)
 - Fixed bug with "browser.rights.3.shown" being set as STRING rather than Boolean. Works as intended now.
 	*toolkit.telemetry.prompted now properly set/working for firefox version(s) through 12.
+	
+0.1.3.2
+- Added a German translation thanks to "Snaker" and his blog at
+	http://snakerl.blogspot.de/2012/04/admx-dateien-fur-firefox-deutsche.html
+	
+NOTE: This will the last update to the CHANGELOG.txt. All additonal changes will be noted in the
+	git commit messages.
