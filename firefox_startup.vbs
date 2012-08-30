@@ -253,19 +253,12 @@ Sub setDisableTelemetry()
 		Select Case keyDisableTelemetry
 			Case 1
 				appendLockPreference "toolkit.telemetry.enabled","false",False
-				appendLockPreference "toolkit.telemetry.rejected","true",False			
-				Select Case firefoxMajorVersion
-					Case 8
-						appendLockPreference "toolkit.telemetry.prompted","true",False	'FF8
-					Case 9
-						appendLockPreference "toolkit.telemetry.prompted","2",False		'FF9
-					Case 10
-						appendLockPreference "toolkit.telemetry.prompted","2",False		'FF10
-					Case 11
-						appendLockPreference "toolkit.telemetry.prompted","2",False		'FF11
-					Case 12
-						appendLockPreference "toolkit.telemetry.prompted","2",False		'FF12
-				End Select
+				appendLockPreference "toolkit.telemetry.rejected","true",False
+				If firefoxMajorVersion = 8 Then
+					appendLockPreference "toolkit.telemetry.prompted","true",False
+				ElseIf firefoxMajorVersion > 8 Then
+					appendLockPreference "toolkit.telemetry.prompted","2",False
+				End If
 		End Select
 	End If		
 End Sub
