@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources revision="1.0" schemaVersion="1.0">
   <displayName>FirefoxADMX</displayName>
   <description>Firefox ADMX ist ein Weg um zentral Einstellungen via Gruppenrichtlinen und administrative Vorlagen &#252;ber das Active Directory zu verteilen. Firefox ADMX ist eine Weiterentwicklung der Firefox ADM von Mark Sammons.</description>

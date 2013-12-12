@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources revision="1.0" schemaVersion="1.0">
   <displayName>FirefoxADMX</displayName>
   <description>Firefox ADMX is a way of allowing centrally managed locked and/or default settings in Firefox via Group Policy and Administrative Templates in Active Directory. Firefox ADMX is a continuation of Firefox ADM by Mark Sammons.</description>
