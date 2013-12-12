@@ -33,8 +33,6 @@ If you enable this policy, that page will be supressed.</string>
         <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Display when Firefox starts</dropdownList>
         <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
           <label>Custom Homepage</label>
-          <defaultValue>
-          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">

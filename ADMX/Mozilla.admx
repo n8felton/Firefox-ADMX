@@ -15,13 +15,7 @@
   <policies>
     <policy name="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE)" key="Software\Policies\Mozilla\Firefox" valueName="Homepage">
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
-      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
-		<enabledValue>
-			<delete />
-		</enabledValue>
-		<disabledValue>
-			<delete />
-		</disabledValue>	  
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />  
       <elements>	  
         <enum id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" key="Software\Policies\Mozilla\Firefox" valueName="HomepageDisplay" required="true">
           <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE)">
