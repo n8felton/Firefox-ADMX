@@ -316,7 +316,7 @@ End Sub
 Sub setFileLocations()
 	strMozillaCfgFile = firefoxInstallDir & "\mozilla.cfg"
 	strAllSettingsFile = firefoxInstallDir & "\defaults\pref\all-settings.js"
-	strOverrideFile = firefoxInstallDir & "\override.ini"
+	strOverrideFile = firefoxInstallDir & "\browser\override.ini"
 End Sub
 
 Sub forceConfigFiles()
