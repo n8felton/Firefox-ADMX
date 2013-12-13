@@ -22,7 +22,7 @@ Dim objArgs				: 	Set objArgs = WScript.Arguments
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 ' Script variables
-Dim strVersion			:	strVersion = "0.1.3.2"
+Dim strVersion			:	strVersion = "0.2.0"
 
 ' Variables required for logging.
 Dim fileLog
