@@ -22,7 +22,7 @@ Dim objArgs				: 	Set objArgs = WScript.Arguments
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 ' Script variables
-Dim strVersion			:	strVersion = "0.1.3.2"
+Dim strVersion			:	strVersion = "0.2.0"
 
 ' Variables required for logging.
 Dim fileLog
@@ -430,6 +430,7 @@ Sub generateLogFile()
 	writeLog ""
 	writeLog "-----------------------------------------------------------------"
 	writeLog vbTab & vbTab & vbTab & "Starting New Instance"
+	writeLog vbTab & vbTab & vbTab & date & " - " & time
 	writeLog "-----------------------------------------------------------------"
 	writeLog ""
 	writeLog vbTab & vbTab & vbTab & "Firefox ADMX - Version " & strVersion
