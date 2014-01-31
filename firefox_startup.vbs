@@ -140,6 +140,11 @@ Sub setDisableImport()
 			fileOverride.WriteLine strEnableProfileMigrator
 			fileOverride.Close	
 		End If
+	Else
+		If objFSO.FileExists(strOverrideFile) Then
+			writeLog "Deleting " & strOverrideFile
+			objFSO.DeleteFile(strOverrideFile)
+		End If
 	End If
 End Sub
 
