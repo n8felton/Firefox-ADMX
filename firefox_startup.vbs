@@ -67,10 +67,10 @@ Sub setCustomHomepage()
 	Dim keyHomepageDisplay, keyCustomHomepage
 	keyHomepageDisplay = getRegistryKey(policiesRegistry & "\HomepageDisplay")
 	keyCustomHomepage = getRegistryKey(policiesRegistry & "\CustomHomepage")
+	removePreference("browser.startup.homepage")
+	removePreference("browser.startup.page")	
 	If keyHomepageDisplay <> "" Then
 		writeLog "Changing homepage to " & keyHomepageDisplay
-		removePreference("browser.startup.homepage")
-		removePreference("browser.startup.page")
 		Select Case Ucase(keyHomepageDisplay)
 			Case "DEFAULT"
 				appendLockPreference "browser.startup.homepage","about:home",True
@@ -89,9 +89,9 @@ End Sub
 Sub setDisableDefaultCheck
 	Dim keyDisableDefaultCheck
 	keyDisableDefaultCheck = getRegistryKey(policiesRegistry & "\DisableDefaultCheck")
+	removePreference("browser.shell.checkDefaultBrowser")
 	If keyDisableDefaultCheck <> "" Then
 		writeLog "Disabling Default Browser Check"
-		removePreference("browser.shell.checkDefaultBrowser")
 		Select Case keyDisableDefaultCheck
 			Case 0
 				appendLockPreference "browser.shell.checkDefaultBrowser","true",False
@@ -148,9 +148,11 @@ Sub setDisableUpdates()
 	keyDisableUpdate = getRegistryKey(policiesRegistry & "\DisableUpdate")
 	keyDisableExtensionsUpdate = getRegistryKey(policiesRegistry & "\DisableExtensionsUpdate")
 	keyDisableSearchUpdate = getRegistryKey(policiesRegistry & "\DisableSearchUpdate")
+	removePreference("app.update.enabled")
+	removePreference("extensions.update.enabled")
+	removePreference("browser.search.update")
 	If keyDisableUpdate <> "" Then
 		writeLog "Disabling Firefox Updates"
-		removePreference("app.update.enabled")
 		Select Case keyDisableUpdate
 			Case 0
 				appendLockPreference "app.update.enabled","true",False
@@ -160,7 +162,6 @@ Sub setDisableUpdates()
 	End If
 	If keyDisableExtensionsUpdate <> "" Then
 		writeLog "Disabling Firefox Extension Updates"
-		removePreference("extensions.update.enabled")
 		Select Case keyDisableUpdate
 			Case 0
 				appendLockPreference "extensions.update.enabled","true",False
@@ -170,7 +171,6 @@ Sub setDisableUpdates()
 	End If
 	If keyDisableSearchUpdate <> "" Then
 		writeLog "Disabling Firefox Search Updates"
-		removePreference("browser.search.update")
 		Select Case keyDisableUpdate
 			Case 0
 				appendLockPreference "browser.search.update","true",False
@@ -183,9 +183,9 @@ End Sub
 Sub setDisableDownloadManager()
 	Dim keyDisableDownloadManager
 	keyDisableDownloadManager = getRegistryKey(policiesRegistry & "\DisableDownloadManager")
+	removePreference("browser.download.manager.showWhenStarting")
 	If keyDisableDownloadManager <> "" Then
 		writeLog "Disabling Download Manager"
-		removePreference("browser.download.manager.showWhenStarting")
 		Select Case keyDisableDownloadManager
 			Case 0
 				appendLockPreference "browser.download.manager.showWhenStarting","true",False
@@ -198,9 +198,9 @@ End Sub
 Sub setDisablePasswordManager
 	Dim keyDisablePasswordManager
 	keyDisablePasswordManager = getRegistryKey(policiesRegistry & "\DisablePasswordManager")
+	removePreference("signon.rememberSignons")	
 	If keyDisablePasswordManager <> "" Then
 		writeLog "Disabling the Password Manager"
-		removePreference("signon.rememberSignons")
 		Select Case keyDisablePasswordManager
 			Case 0
 				appendLockPreference "signon.rememberSignons","true",False
@@ -213,10 +213,10 @@ End Sub
 Sub setDisableAddonWizard()
 	Dim keyDisableAddonWizard
 	keyDisableAddonWizard = getRegistryKey(policiesRegistry & "\DisableAddonWizard")
+	removePreference("extensions.shownSelectionUI")
+	removePreference("extensions.autoDisableScope")
 	If keyDisableAddonWizard <> "" Then
 		writeLog "Disabling the Add-On Wizard"
-		removePreference("extensions.shownSelectionUI")
-		removePreference("extensions.autoDisableScope")
 		Select Case keyDisableAddonWizard
 			Case 0
 				appendLockPreference "extensions.shownSelectionUI","false",False
@@ -231,10 +231,10 @@ End Sub
 Sub setSupressUpdatePage()
 	Dim keySuppressUpdatePage
 	keySuppressUpdatePage = getRegistryKey(policiesRegistry & "\SupressUpdatePage")
+	removePreference("startup.homepage_override_url")
+	removePreference("startup.homepage_welcome_url")	
 	If keySuppressUpdatePage <> "" Then
 		writeLog "Suppressing the Firefox Updated page"
-		removePreference("startup.homepage_override_url")
-		removePreference("startup.homepage_welcome_url")
 		Select Case keySuppressUpdatePage
 			Case 1
 				appendLockPreference "startup.homepage_override_url","",True
@@ -246,11 +246,11 @@ End Sub
 Sub setDisableTelemetry()
 	Dim keyDisableTelemetry
 	keyDisableTelemetry = getRegistryKey(policiesRegistry & "\DisableTelemetry")
+	removePreference("toolkit.telemetry.enabled")
+	removePreference("toolkit.telemetry.prompted")
+	removePreference("toolkit.telemetry.rejected")	
 	If keyDisableTelemetry <> "" Then
 		writeLog "Disabling Telemetry"
-		removePreference("toolkit.telemetry.enabled")
-		removePreference("toolkit.telemetry.prompted")
-		removePreference("toolkit.telemetry.rejected")
 		Select Case keyDisableTelemetry
 			Case 1
 				appendLockPreference "toolkit.telemetry.enabled","false",False
@@ -267,9 +267,9 @@ End Sub
 Sub setDisableRights()
 	Dim keyDisableRights
 	keyDisableRights = getRegistryKey(policiesRegistry & "\DisableRights")
+	removePreference("browser.rights.3.shown")	
 	If keyDisableRights <> "" Then
 		writeLog "Suppressing the Know your Rights Browser Bar"
-		removePreference("browser.rights.3.shown")
 		Select Case keyDisableRights
 			Case 1
 				appendLockPreference "browser.rights.3.shown","true",False
@@ -280,9 +280,9 @@ End Sub
 Sub setDisableBrowserMilestone
 	Dim keyDisableBrowserMilestone
 	keyDisableBrowserMilestone = getRegistryKey(policiesRegistry & "\DisableBrowserMilestone")
+	removePreference("browser.startup.homepage_override.mstone")
 	If keyDisableBrowserMilestone <> "" Then
 		writeLog "Disabling the browser milestone page"
-		removePreference("browser.startup.homepage_override.mstone")
 		Select Case keyDisableBrowserMilestone
 			Case 1
 				appendLockPreference "browser.startup.homepage_override.mstone","ignore",True
