@@ -12,6 +12,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Default Page</string>
 	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
 	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Disable Browser Miletone Page</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Disable Automatic Updates</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Disable Download Manager</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Disables the Download Manager from appearing when you start to download a file.</string>
