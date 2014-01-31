@@ -45,6 +45,10 @@
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />		
 	</policy>
+	<policy name="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE)" key="Software\Policies\Mozilla\Firefox" valueName="DisableBrowserMilestone">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />		
+	</policy>
     <policy name="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES)" key="Software\Policies\Mozilla\Firefox" valueName="DisableUpdate">
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />

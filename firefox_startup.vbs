@@ -61,6 +61,7 @@ setDisableAddonWizard
 setSupressUpdatePage
 setDisableTelemetry
 setDisableRights
+setDisableBrowserMilestone
 
 Sub setCustomHomepage()
 	Dim keyHomepageDisplay, keyCustomHomepage
@@ -272,6 +273,19 @@ Sub setDisableRights()
 		Select Case keyDisableRights
 			Case 1
 				appendLockPreference "browser.rights.3.shown","true",False
+		End Select
+	End If	
+End Sub
+
+Sub setDisableBrowserMilestone
+	Dim keyDisableBrowserMilestone
+	keyDisableBrowserMilestone = getRegistryKey(policiesRegistry & "\DisableBrowserMilestone")
+	If keyDisableBrowserMilestone <> "" Then
+		writeLog "Disabling the browser milestone page"
+		removePreference("browser.startup.homepage_override.mstone")
+		Select Case keyDisableBrowserMilestone
+			Case 1
+				appendLockPreference "browser.startup.homepage_override.mstone","ignore",True
 		End Select
 	End If	
 End Sub
