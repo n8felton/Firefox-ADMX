@@ -12,6 +12,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Standardseite</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Deaktiviere Pr&#252;fung nach Standardbrowser</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Deaktiviere Import-Assistenten</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Deaktiviere Browser Miletone Seite</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Deaktiviere automatische Updates</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Deaktiviere Download-Manager</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Deaktiviere das Starten des Download-Managers beim Herunterladen einer Datei</string>
