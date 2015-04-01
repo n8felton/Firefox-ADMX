@@ -482,7 +482,7 @@ Sub forceCScript()
 	End If
 	
 	If InStr(WScript.FullName,"cscript") = 0 Then
-		objShell.Run "%comspec% /k " & WScript.Path & "\cscript.exe " & Chr(34) & WScript.ScriptFullName & Chr(34) & strArgs,iWindow,False
+		objShell.Run "%comspec% /c " & WScript.Path & "\cscript.exe " & Chr(34) & WScript.ScriptFullName & Chr(34) & strArgs,iWindow,False
 		WScript.Quit(0)
 	End If
 End Sub
