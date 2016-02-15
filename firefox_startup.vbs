@@ -53,6 +53,7 @@ cleanOldSettings
 
 setCustomHomepage
 setCustomUseragent
+setNTLMAuthTrustedURIs
 setDisableDefaultCheck
 setDisableImport
 setDisableUpdates
@@ -95,7 +96,16 @@ Sub setCustomUseragent()
 		writeLog "Changing Useragent to " & keyUseragentOverride
 		appendLockPreference "general.useragent.override",keyUseragentOverride,True
 	End If
+End Sub
 
+Sub setNTLMAuthTrustedURIs()
+	Dim keyNTLMAuthTrustedURIs
+	keyNTLMAuthTrustedURIs = getRegistryKey(policiesRegistry & "\NTLMAuthTrustedURIs")
+	removePreference("network.automatic-ntlm-auth.trusted-uris")
+	If keyNTLMAuthTrustedURIs <> "" Then
+		writeLog "Setting NTLM-trusted URIs to " & keyNTLMAuthTrustedURIs
+		appendLockPreference "network.automatic-ntlm-auth.trusted-uris",keyNTLMAuthTrustedURIs,True
+	End If
 End Sub
 
 Sub setDisableDefaultCheck
