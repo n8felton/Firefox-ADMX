@@ -52,6 +52,7 @@ forceConfigFiles
 cleanOldSettings
 
 setCustomHomepage
+setCustomUseragent
 setDisableDefaultCheck
 setDisableImport
 setDisableUpdates
@@ -84,6 +85,17 @@ Sub setCustomHomepage()
 				appendLockPreference "browser.startup.page","0",False
 		End Select
 	End If
+End Sub
+
+Sub setCustomUseragent()
+	Dim keyUseragentOverride
+	keyUseragentOverride = getRegistryKey(policiesRegistry & "\UseragentOverride")
+	removePreference("general.useragent.override")
+	If keyUseragentOverride <> "" Then
+		writeLog "Changing Useragent to " & keyUseragentOverride
+		appendLockPreference "general.useragent.override",keyUseragentOverride,True
+	End If
+
 End Sub
 
 Sub setDisableDefaultCheck

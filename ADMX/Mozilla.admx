@@ -37,6 +37,13 @@
         <text id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT" key="Software\Policies\Mozilla\Firefox" valueName="CustomHomepage" />
       </elements>
     </policy>
+	<policy name="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT)" key="Software\Policies\Mozilla\Firefox" valueName="Useragent">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />  
+      <elements>	  
+        <text id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_CUSTOMPAGETEXT" key="Software\Policies\Mozilla\Firefox" valueName="UseragentOverride" />
+      </elements>
+    </policy>
 	<policy name="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK)" key="Software\Policies\Mozilla\Firefox" valueName="DisableDefaultCheck">
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />		
