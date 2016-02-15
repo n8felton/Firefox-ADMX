@@ -128,7 +128,7 @@ Sub setDisableImport()
 		If objFSO.FileExists(strOverrideFile) Then
 			Set fileOverride = objFSO.GetFile(strOverrideFile)
 			If fileOverride.Size > 0 Then 'If the file already exists but is not empty
-				writeLog strOverrideFile & " already exists. Replaceing contents"
+				writeLog strOverrideFile & " already exists. Replacing contents"
 				Set fileOverride = objFSO.OpenTextFile(strOverrideFile, ForReading)
 				arrOverrideContents = Split(fileOverride.ReadAll, vbCrLf)
 				arrOverrideContents = Filter(arrOverrideContents,"[XRE]", False, vbTextCompare)
