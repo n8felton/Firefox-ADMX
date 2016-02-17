@@ -10,6 +10,8 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Blank Page</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Custom Homepage</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Default Page</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Custom Useragent</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">NTLM Authentication Trusted URIs</string>
 	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
 	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
 	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Disable Browser Miletone Page</string>
@@ -18,6 +20,8 @@
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Disables the Download Manager from appearing when you start to download a file.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS">Disable Password Manager</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Allows the customization of the homepage. You can choose to blank the home page or set a custom URL.</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Allows the customization of the useragent. This overrides the entire useragent sent to the server.</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">Comma-seperated list of FQDNs to allow NTLM authentication.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supress "Firefox Updated" page after update</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">After updating Firefox, by default it display's a "What's New" page.
 
@@ -34,6 +38,16 @@ If you enable this policy, that page will be supressed.</string>
         <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Display when Firefox starts</dropdownList>
         <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
           <label>Custom Homepage</label>
+        </textBox>
+      </presentation>
+	  <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_CUSTOMPAGETEXT">
+          <label>Custom UserAgent</label>
+        </textBox>
+      </presentation>
+	  	  <presentation id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_CUSTOMPAGETEXT">
+          <label>URIs</label>
         </textBox>
       </presentation>
       <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">

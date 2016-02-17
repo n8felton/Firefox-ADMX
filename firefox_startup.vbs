@@ -52,6 +52,8 @@ forceConfigFiles
 cleanOldSettings
 
 setCustomHomepage
+setCustomUseragent
+setNTLMAuthTrustedURIs
 setDisableDefaultCheck
 setDisableImport
 setDisableUpdates
@@ -86,6 +88,26 @@ Sub setCustomHomepage()
 	End If
 End Sub
 
+Sub setCustomUseragent()
+	Dim keyUseragentOverride
+	keyUseragentOverride = getRegistryKey(policiesRegistry & "\UseragentOverride")
+	removePreference("general.useragent.override")
+	If keyUseragentOverride <> "" Then
+		writeLog "Changing Useragent to " & keyUseragentOverride
+		appendLockPreference "general.useragent.override",keyUseragentOverride,True
+	End If
+End Sub
+
+Sub setNTLMAuthTrustedURIs()
+	Dim keyNTLMAuthTrustedURIs
+	keyNTLMAuthTrustedURIs = getRegistryKey(policiesRegistry & "\NTLMAuthTrustedURIs")
+	removePreference("network.automatic-ntlm-auth.trusted-uris")
+	If keyNTLMAuthTrustedURIs <> "" Then
+		writeLog "Setting NTLM-trusted URIs to " & keyNTLMAuthTrustedURIs
+		appendLockPreference "network.automatic-ntlm-auth.trusted-uris",keyNTLMAuthTrustedURIs,True
+	End If
+End Sub
+
 Sub setDisableDefaultCheck
 	Dim keyDisableDefaultCheck
 	keyDisableDefaultCheck = getRegistryKey(policiesRegistry & "\DisableDefaultCheck")
@@ -116,7 +138,7 @@ Sub setDisableImport()
 		If objFSO.FileExists(strOverrideFile) Then
 			Set fileOverride = objFSO.GetFile(strOverrideFile)
 			If fileOverride.Size > 0 Then 'If the file already exists but is not empty
-				writeLog strOverrideFile & " already exists. Replaceing contents"
+				writeLog strOverrideFile & " already exists. Replacing contents"
 				Set fileOverride = objFSO.OpenTextFile(strOverrideFile, ForReading)
 				arrOverrideContents = Split(fileOverride.ReadAll, vbCrLf)
 				arrOverrideContents = Filter(arrOverrideContents,"[XRE]", False, vbTextCompare)
