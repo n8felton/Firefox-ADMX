@@ -1,6 +1,6 @@
 <policyDefinitions revision="1.0" schemaVersion="1.0">
   <policyNamespaces>
-    <target prefix="fullarmor" namespace="FullArmor.Policies.DE35B852_417F_4AC6_A3FC_E11C677EAA1E" />
+    <target prefix="firefoxadmx" namespace="FirefoxADMX" />
     <using prefix="windows" namespace="Microsoft.Policies.Windows" />
   </policyNamespaces>
   <supersededAdm fileName="" />
@@ -121,54 +121,35 @@
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <elements>
         <enum id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS_MODE" key="Software\Policies\Mozilla\Firefox" valueName="ProxyMode" required="true">
-          <item displayName="$(string.ITM_122BB0CE_F2DF_4744_82BD_30AF0DC75005)">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_NOPRX)">
             <value>
               <decimal value="3" />
             </value>
           </item>
-          <item displayName="$(string.ITM_9223CBEF_3086_42FF_AB83_60608CFEC6D5)">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_MANUALPRX)">
             <value>
               <decimal value="1" />
             </value>
           </item>
-          <item displayName="$(string.ITM_5EF5CD54_C9D6_470A_A8F8_ADC55AE95910)">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_USEPAC)">
             <value>
               <decimal value="2" />
             </value>
           </item>
-          <item displayName="$(string.ITM_7B289127_E67F_45D0_9039_B4DAF4550268)">
-            <value>
-              <decimal value="3" />
-            </value>
-          </item>
-          <item displayName="$(string.ITM_5C6A8B2A_D645_47E8_ABA2_2BF6BD9058A9)">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_AUTO)">
             <value>
               <decimal value="4" />
             </value>
           </item>
-        </enum>
-        <text id="MOZILLA_FIREFOX_LOCKED_HTTPPROXYADDR" key="Software\Policies\Mozilla\Firefox" valueName="HTTPProxyAddr" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYSSLADDR" key="Software\Policies\Mozilla\Firefox" valueName="SSLProxyAddress" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYFTPADDR" key="Software\Policies\Mozilla\Firefox" valueName="FTPProxyAddr" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyAddress" />
-        <enum id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" key="Software\Policies\Mozilla\Firefox" valueName="SocksServerType">
-          <item displayName="$(string.ITM_8697150C_A488_4B6B_886D_835F4FFECC21)">
-            <value>
-              <decimal value="4" />
-            </value>
-          </item>
-          <item displayName="$(string.ITM_FABCE1C7_C8F0_4763_8494_2156B170ABD9)">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_USESYSTEM)">
             <value>
               <decimal value="5" />
             </value>
           </item>
         </enum>
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR" key="Software\Policies\Mozilla\Firefox" valueName="ProxyAutoConfigAddress" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYHTTPPORT" key="Software\Policies\Mozilla\Firefox" valueName="HTTPProxyServerPort" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT" key="Software\Policies\Mozilla\Firefox" valueName="SSLProxyPort" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT" key="Software\Policies\Mozilla\Firefox" valueName="FTPProxyPort" />
-        <text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyPort" />
-        <boolean id="MOZILLA_FIREFOX_LOCKED_PROXYUSEHTTPSRV" key="Software\Policies\Mozilla\Firefox" valueName="UseHTTPProxyForAllProto">
+        <text id="MOZILLA_FIREFOX_LOCKED_HTTPPROXYADDR" key="Software\Policies\Mozilla\Firefox" valueName="HTTPProxyAddr" />
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYHTTPPORT" key="Software\Policies\Mozilla\Firefox" valueName="HTTPProxyServerPort" />        
+		<boolean id="MOZILLA_FIREFOX_LOCKED_PROXYUSEHTTPSRV" key="Software\Policies\Mozilla\Firefox" valueName="UseHTTPProxyForAllProto">
           <trueValue>
             <decimal value="1" />
           </trueValue>
@@ -176,6 +157,25 @@
             <decimal value="0" />
           </falseValue>
         </boolean>
+        <text id="MOZILLA_FIREFOX_LOCKED_PROXYSSLADDR" key="Software\Policies\Mozilla\Firefox" valueName="SSLProxyAddress" />
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT" key="Software\Policies\Mozilla\Firefox" valueName="SSLProxyPort" />
+        <text id="MOZILLA_FIREFOX_LOCKED_PROXYFTPADDR" key="Software\Policies\Mozilla\Firefox" valueName="FTPProxyAddr" />
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT" key="Software\Policies\Mozilla\Firefox" valueName="FTPProxyPort" />        
+        <enum id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" key="Software\Policies\Mozilla\Firefox" valueName="SocksServerType">
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_SOCKSV4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_SOCKSV5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+        </enum>
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyAddress" />
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyPort" />
+        <text id="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR" key="Software\Policies\Mozilla\Firefox" valueName="ProxyAutoConfigAddress" />                
       </elements>
     </policy>
   </policies>

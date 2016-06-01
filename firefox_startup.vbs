@@ -71,7 +71,10 @@ Sub lockProxySettings()
 	lockProxyEnabled = getRegistryKey(policiesRegistry & "\DisableProxyChanges")
 	'proxymode 0 - noproxy
 	'proxymode 1 - manualsettings
-	'
+	'proxymode 2 - use PAC file
+	'proxymode 3 - noproxy
+	'proxymode 4 - autodetect
+	'proxymode 5 - use system settings
 	proxyMode = getRegistryKey(policiesRegistry & "\ProxyMode")
 	appendLockPreference "network.proxy.type",proxyMode,False
 	writeLog("oi")
