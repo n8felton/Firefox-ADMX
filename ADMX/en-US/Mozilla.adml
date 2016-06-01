@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources revision="1.0" schemaVersion="1.0">
   <displayName>FirefoxADMX</displayName>
   <description>Firefox ADMX is a way of allowing centrally managed locked and/or default settings in Firefox via Group Policy and Administrative Templates in Active Directory. Firefox ADMX is a continuation of Firefox ADM by Mark Sammons.</description>
@@ -10,50 +9,114 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Blank Page</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Custom Homepage</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Default Page</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Custom Useragent</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">NTLM Authentication Trusted URIs</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Disable Browser Miletone Page</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Custom Useragent</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">NTLM Authentication Trusted URIs</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Disable Browser Miletone Page</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Disable Automatic Updates</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Disable Download Manager</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Disables the Download Manager from appearing when you start to download a file.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS">Disable Password Manager</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Allows the customization of the homepage. You can choose to blank the home page or set a custom URL.</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Allows the customization of the useragent. This overrides the entire useragent sent to the server.</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">Comma-seperated list of FQDNs to allow NTLM authentication.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Allows the customization of the useragent. This overrides the entire useragent sent to the server.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">Comma-seperated list of FQDNs to allow NTLM authentication.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supress "Firefox Updated" page after update</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">After updating Firefox, by default it display's a "What's New" page.
 
 If you enable this policy, that page will be supressed.</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Disable Add-On Wizard</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Disables the Add-On Wizard at startup.</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Disable Telemetry</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help">Disables prompt and disables sending data to Mozilla. Disabling this will enable Telemetry.</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS">Disable "Know your rights"</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help">Disables the "Know your rights..." prompt on first run.</string>	  
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Disable Add-On Wizard</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Disables the Add-On Wizard at startup.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Disable Telemetry</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help">Disables prompt and disables sending data to Mozilla. Disabling this will enable Telemetry.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS">Disable "Know your rights"</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help">Disables the "Know your rights..." prompt on first run.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS">Proxy Settings</string>
+      <string id="ITM_8697150C_A488_4B6B_886D_835F4FFECC21">SOCKS v4</string>
+      <string id="ITM_FABCE1C7_C8F0_4763_8494_2156B170ABD9">SOCKS v5</string>
+      <string id="ITM_122BB0CE_F2DF_4744_82BD_30AF0DC75005">No Proxy</string>
+      <string id="ITM_9223CBEF_3086_42FF_AB83_60608CFEC6D5">Autodetect network configuration</string>
+      <string id="ITM_5EF5CD54_C9D6_470A_A8F8_ADC55AE95910">Use system configuration</string>
+      <string id="ITM_7B289127_E67F_45D0_9039_B4DAF4550268">Manual proxy configuration</string>
+      <string id="ITM_5C6A8B2A_D645_47E8_ABA2_2BF6BD9058A9">Use auto configuration URL (PAC)</string>
     </stringTable>
     <presentationTable>
       <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">
         <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Display when Firefox starts</dropdownList>
         <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
           <label>Custom Homepage</label>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
-	  <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">
+      <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">
         <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_CUSTOMPAGETEXT">
           <label>Custom UserAgent</label>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
-	  	  <presentation id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">
+      <presentation id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">
         <textBox refId="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_CUSTOMPAGETEXT">
           <label>URIs</label>
+          <defaultValue>
+          </defaultValue>
         </textBox>
       </presentation>
       <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">
         <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" defaultChecked="true">Disable Firefox Automatic Update</checkBox>
         <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" defaultChecked="true">Disable Extensions Updates</checkBox>
         <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_SEARCH" defaultChecked="true">Disable Search Engine Updates</checkBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS">
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS_MODE" defaultItem="0">Proxy Mode</dropdownList>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_HTTPPROXYADDR">
+          <label>HTTP Proxy Address</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYHTTPPORT">
+          <label>HTTP Proxy server port</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_PROXYUSEHTTPSRV">Use HTTP Proxy for all protocols</checkBox>    
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT">
+          <label>SSL Proxy Port</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>      
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT">
+          <label>FTP Proxy Port</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" defaultItem="0">Socks Server Type</dropdownList>  
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLADDR">
+          <label>SSL Proxy address</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR">
+          <label>Automatic Proxy Configuration Address</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPADDR">
+          <label>FTP Proxy Address</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR">
+          <label>Socks Proxy Address</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT">
+          <label>Socks Proxy Port</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

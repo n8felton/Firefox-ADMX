@@ -51,6 +51,7 @@ setFileLocations
 forceConfigFiles
 cleanOldSettings
 
+lockProxySettings
 setCustomHomepage
 setCustomUseragent
 setNTLMAuthTrustedURIs
@@ -64,6 +65,17 @@ setSupressUpdatePage
 setDisableTelemetry
 setDisableRights
 setDisableBrowserMilestone
+
+Sub lockProxySettings()
+	Dim lockProxyEnabled, proxyMode
+	lockProxyEnabled = getRegistryKey(policiesRegistry & "\DisableProxyChanges")
+	'proxymode 0 - noproxy
+	'proxymode 1 - manualsettings
+	'
+	proxyMode = getRegistryKey(policiesRegistry & "\ProxyMode")
+	appendLockPreference "network.proxy.type",proxyMode,False
+	writeLog("oi")
+End Sub
 
 Sub setCustomHomepage()
 	Dim keyHomepageDisplay, keyCustomHomepage
