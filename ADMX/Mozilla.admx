@@ -116,11 +116,11 @@
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
     </policy>
-    <policy name="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS)" key="Software\Policies\Mozilla\Firefox" valueName="LockProxySettings">
+    <policy name="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS)" key="Software\Policies\Mozilla\Firefox" valueName="DisableProxyChanges">
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <elements>
-        <enum id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS_MODE" key="Software\Policies\Mozilla\Firefox" valueName="ProxyMode" required="true">
+        <enum id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS_MODE" key="Software\Policies\Mozilla\Firefox" valueName="ProxyMode">
           <item displayName="$(string.MOZILLA_FIREFOX_LOCKED_PROXY_NOPRX)">
             <value>
               <decimal value="3" />
@@ -176,6 +176,7 @@
 		<text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyAddress" />
 		<text id="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT" key="Software\Policies\Mozilla\Firefox" valueName="SocksProxyPort" />
         <text id="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR" key="Software\Policies\Mozilla\Firefox" valueName="ProxyAutoConfigAddress" />                
+		<text id="MOZILLA_FIREFOX_LOCKED_PROXYEXCEPTIONS" key="Software\Policies\Mozilla\Firefox" valueName="ProxyExceptions" />                
       </elements>
     </policy>
   </policies>

@@ -67,17 +67,127 @@ setDisableRights
 setDisableBrowserMilestone
 
 Sub lockProxySettings()
-	Dim lockProxyEnabled, proxyMode
-	lockProxyEnabled = getRegistryKey(policiesRegistry & "\DisableProxyChanges")
-	'proxymode 0 - noproxy
-	'proxymode 1 - manualsettings
-	'proxymode 2 - use PAC file
-	'proxymode 3 - noproxy
-	'proxymode 4 - autodetect
-	'proxymode 5 - use system settings
-	proxyMode = getRegistryKey(policiesRegistry & "\ProxyMode")
-	appendLockPreference "network.proxy.type",proxyMode,False
-	writeLog("oi")
+	'Variables used to store values that we get from the windows registry
+	Dim regPrxType, regAutoConfigUrl, regFtpPrxaddr, regFtpPrxPort, regHttpPrxAddr, regHttpPrxPort, disableProxyChanges
+	Dim regPrxExceptions, regSocksPrxAddr, regSocksPrxPort, regSocksPrxVersion, regSslPrxAddr, regSslPrxPort, regUseHttpForAll	
+	'Variables used to store the firefox preferences that can be modified
+	Dim prefPrxType, prefAutoConfigUrl, prefFtpPrxaddr, prefFtpPrxPort, prefHttpPrxAddr, prefHttpPrxPort, prefUseHttpForAll
+	Dim prefPrxExceptions, prefSocksPrxAddr, prefSocksPrxPort, prefSocksPrxVersion, prefSslPrxAddr, prefSslPrxPort
+	
+	prefPrxType = "network.proxy.type"
+	prefAutoConfigUrl = "network.proxy.autoconfig_url"
+	prefFtpPrxaddr = "network.proxy.ftp"
+	prefFtpPrxPort = "network.proxy.ftp_port"
+	prefHttpPrxAddr = "network.proxy.http"
+	prefHttpPrxPort = "network.proxy.http_port"
+	prefPrxExceptions = "network.proxy.no_proxies_on"
+	prefSocksPrxAddr = "network.proxy.socks"	
+	prefSocksPrxPort = "network.proxy.socks_port"
+	prefSocksPrxVersion = "network.proxy.socks_version"
+	prefSslPrxAddr = "network.proxy.ssl"
+	prefSslPrxPort = "network.proxy.ssl_port"
+	prefUseHttpForAll = "network.proxy.share_proxy_settings"
+	
+	'Gets all registry data
+	disableProxyChanges = getRegistryKey(policiesRegistry & "\DisableProxyChanges")	
+	regPrxType = getRegistryKey(policiesRegistry & "\ProxyMode")
+	'regPrxType 0 - noproxy
+	'regPrxType 1 - manualsettings
+	'regPrxType 2 - use PAC file
+	'regPrxType 3 - noproxy
+	'regPrxType 4 - autodetect
+	'regPrxType 5 - use system settings
+	regAutoConfigUrl = getRegistryKey(policiesRegistry & "\ProxyAutoConfigAddress")
+	regFtpPrxaddr = getRegistryKey(policiesRegistry & "\FTPProxyAddr")
+	regFtpPrxPort = getRegistryKey(policiesRegistry & "\FTPProxyPort")
+	regHttpPrxAddr = getRegistryKey(policiesRegistry & "\HTTPProxyAddr")
+	regHttpPrxPort = getRegistryKey(policiesRegistry & "\HTTPProxyServerPort")
+	regPrxExceptions = getRegistryKey(policiesRegistry & "\ProxyExceptions")
+	regSocksPrxAddr = getRegistryKey(policiesRegistry & "\SocksProxyAddress")
+	regSocksPrxPort = getRegistryKey(policiesRegistry & "\SocksProxyPort")
+	regSocksPrxVersion = getRegistryKey(policiesRegistry & "\SocksServerType")
+	regSslPrxAddr = getRegistryKey(policiesRegistry & "\SSLProxyAddress")
+	regSslPrxPort = getRegistryKey(policiesRegistry & "\SSLProxyPort")
+	regUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto")
+	
+	'Removes preferences from files
+	removePreference(prefPrxType)
+	removePreference(prefAutoConfigUrl)
+	removePreference(prefFtpPrxaddr)
+	removePreference(prefFtpPrxPort)
+	removePreference(prefHttpPrxAddr)
+	removePreference(prefHttpPrxPort)
+	removePreference(prefPrxExceptions)
+	removePreference(prefSocksPrxAddr)
+	removePreference(prefSocksPrxPort)
+	removePreference(prefSocksPrxVersion)
+	removePreference(prefSslPrxAddr)
+	removePreference(prefSslPrxPort)
+	removePreference(prefUseHttpForAll)
+
+	If disableProxyChanges <> "" Then
+		writeLog "Setting proxy options locking"
+
+		If regPrxType <> "" Then
+			appendLockPreference prefPrxType, regPrxType, False
+		 End If
+		 
+		If regAutoConfigUrl <> "" Then
+			appendLockPreference prefAutoConfigUrl, regAutoConfigUrl, True
+		 End If
+		 
+		If regFtpPrxaddr <> "" Then
+			appendLockPreference prefFtpPrxaddr, regFtpPrxaddr, True
+		 End If
+		 
+		If regFtpPrxPort <> "" Then
+			appendLockPreference prefFtpPrxPort, regFtpPrxPort, False
+		 End If
+		 
+		If regHttpPrxAddr <> "" Then
+			appendLockPreference prefHttpPrxAddr, regHttpPrxAddr, True
+		 End If
+		 
+		If regHttpPrxPort <> "" Then
+			appendLockPreference prefHttpPrxPort, regHttpPrxPort, False
+		 End If
+		 
+		If regPrxExceptions <> "" Then
+			appendLockPreference prefPrxExceptions, regPrxExceptions, True
+		 End If
+		 
+		If regSocksPrxAddr <> "" Then
+			appendLockPreference prefSocksPrxAddr, regSocksPrxAddr, True
+		 End If
+		 
+		If regSocksPrxPort <> "" Then
+			appendLockPreference prefSocksPrxPort, regSocksPrxPort, False
+		 End If
+		 
+		If regSocksPrxVersion <> "" Then
+			appendLockPreference prefSocksPrxVersion, regSocksPrxVersion, False
+		 End If
+		 
+		If regSslPrxAddr <> "" Then
+			appendLockPreference prefSslPrxAddr, regSslPrxAddr, True
+		 End If
+		 
+		If regSslPrxPort <> "" Then
+			appendLockPreference prefSslPrxPort, regSslPrxPort, False
+		 End If
+		 
+		 If regUseHttpForAll <> "" Then
+			If regUseHttpForAll = 1 Then
+				appendLockPreference prefSslPrxAddr, regHttpPrxAddr, True
+				appendLockPreference prefSslPrxPort, regHttpPrxPort, False
+				appendLockPreference prefFtpPrxaddr, regHttpPrxAddr, True
+				appendLockPreference prefFtpPrxPort, regHttpPrxPort, False
+				appendLockPreference prefSocksPrxAddr, regHttpPrxAddr, True
+				appendLockPreference prefSocksPrxPort, regHttpPrxPort, False				
+			End if 		
+		 End If
+		 
+	End If		
 End Sub
 
 Sub setCustomHomepage()
