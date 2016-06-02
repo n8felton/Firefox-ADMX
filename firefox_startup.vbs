@@ -51,7 +51,7 @@ setFileLocations
 forceConfigFiles
 cleanOldSettings
 
-lockProxySettings
+
 setCustomHomepage
 setCustomUseragent
 setNTLMAuthTrustedURIs
@@ -65,15 +65,16 @@ setSupressUpdatePage
 setDisableTelemetry
 setDisableRights
 setDisableBrowserMilestone
+setProxySettings
 
-Sub lockProxySettings()
+Sub setProxySettings()
 	'Variables used to store values that we get from the windows registry
 	Dim keyPrxType, keyAutoConfigUrl, keyFtpPrxaddr, keyFtpPrxPort, keyHttpPrxAddr, keyHttpPrxPort, disableProxyChanges
 	Dim keyPrxExceptions, keySocksPrxAddr, keySocksPrxPort, keySocksPrxVersion, keySslPrxAddr, keySslPrxPort, keyUseHttpForAll	
 	'Variables used to store the firefox preferences that can be modified
 	Dim prefPrxType, prefAutoConfigUrl, prefFtpPrxaddr, prefFtpPrxPort, prefHttpPrxAddr, prefHttpPrxPort
 	Dim prefPrxExceptions, prefSocksPrxAddr, prefSocksPrxPort, prefSocksPrxVersion, prefSslPrxAddr, prefSslPrxPort
-	
+	'Firefox preferences
 	prefPrxType = "network.proxy.type"
 	prefAutoConfigUrl = "network.proxy.autoconfig_url"
 	prefFtpPrxaddr = "network.proxy.ftp"
@@ -86,8 +87,6 @@ Sub lockProxySettings()
 	prefSocksPrxVersion = "network.proxy.socks_version"
 	prefSslPrxAddr = "network.proxy.ssl"
 	prefSslPrxPort = "network.proxy.ssl_port"
-	
-	
 	'Gets all registry data
 	disableProxyChanges = getRegistryKey(policiesRegistry & "\DisableProxyChanges")	
 	keyPrxType = getRegistryKey(policiesRegistry & "\ProxyMode")
@@ -108,8 +107,7 @@ Sub lockProxySettings()
 	keySocksPrxVersion = getRegistryKey(policiesRegistry & "\SocksServerType")
 	keySslPrxAddr = getRegistryKey(policiesRegistry & "\SSLProxyAddress")
 	keySslPrxPort = getRegistryKey(policiesRegistry & "\SSLProxyPort")
-	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto") 
-	
+	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto") 	
 	'Removes preferences from files
 	removePreference(prefPrxType)
 	removePreference(prefAutoConfigUrl)
@@ -123,7 +121,7 @@ Sub lockProxySettings()
 	removePreference(prefSocksPrxVersion)
 	removePreference(prefSslPrxAddr)
 	removePreference(prefSslPrxPort)	
-
+	'Sets the preferences based on registry data
 	If disableProxyChanges <> "" Then
 		writeLog "Setting proxy options"
 
