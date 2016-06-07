@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources revision="1.0" schemaVersion="1.0">
   <displayName>FirefoxADMX</displayName>
   <description>Firefox ADMX is a way of allowing centrally managed locked and/or default settings in Firefox via Group Policy and Administrative Templates in Active Directory. Firefox ADMX is a continuation of Firefox ADM by Mark Sammons.</description>
@@ -83,7 +84,7 @@ If you enable this policy, that page will be supressed.</string>
           <label>SSL Proxy address</label>
           <defaultValue></defaultValue>
         </textBox>
-		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT">
           <label>SSL Proxy Port</label>
           <defaultValue></defaultValue>
         </textBox>                      
@@ -91,24 +92,24 @@ If you enable this policy, that page will be supressed.</string>
           <label>FTP Proxy Address</label>
           <defaultValue></defaultValue>
         </textBox>
-		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT">
           <label>FTP Proxy Port</label>
           <defaultValue></defaultValue>
         </textBox>
-		<dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" defaultItem="0">Socks Server Type</dropdownList>  
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" defaultItem="0">Socks Server Type</dropdownList>  
         <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR">
           <label>Socks Proxy Address</label>
           <defaultValue></defaultValue>
         </textBox>
-		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT">
           <label>Socks Proxy Port</label>
           <defaultValue></defaultValue>
         </textBox>
-		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR">
           <label>Automatic Proxy Configuration Address</label>
           <defaultValue></defaultValue>
         </textBox>
-		<textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYEXCEPTIONS">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYEXCEPTIONS">
           <label>Proxy exceptions (comma separated list)</label>
           <defaultValue>127.0.0.1, localhost</defaultValue>
         </textBox>
