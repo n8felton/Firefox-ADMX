@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+  <displayName>FirefoxADMX</displayName>
+  <description>Firefox ADMX permet la centralisation des paramètres verrouillés / ou par défaut dans Firefox via la stratégie de groupe et les Modèles d'administration dans l'Active Directory . Firefox ADMX est une continuation de Firefox ADM par Mark Sammons.</description>
+  <resources>
+    <stringTable>
+      <string id="MOZILLA_FIREFOX">Mozilla Firefox</string>
+      <string id="MOZILLA_FIREFOX_LOCKED">Préférences vérouillées</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">Page d'accueil personnalisée</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Page vide</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Page d'accueil personnalisée</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Page par défaut</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Useragent personnalisé</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">Authentification NTLM URIs de confiance</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Désactiver la vérification du navigateur par défaut</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Désactiver le wizard d'import</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Désactiver la page moment-clé</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">Désactiver les mises à jour automatiques</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM">Désactiver le gestionnaire des téléchargements</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_DM_Help">Désactiver l'apparition du gestionnaire de téléchargement au démarrage d'un téléchargement.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLE_PASSWORDS">Désactiver le gestionnaire de mot de passe</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Autoriser la personnalisation de la page d'accueil. Vous pouvez choisir une page vide ou définir une URL.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Autoriser la personnalisation du useragent. Ce paramètre écrase l'useragent envoyé au serveur.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">FQDN liste séparée par des virgules pour l'authentification NTLM.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supprimer la page "Firefox mis à jour" après une mise à jour</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">Après avoir mis à jour Firefox, par défaut, une page "Quoi de neuf" est affichée.
+
+Si vous activez cette police, cette page sera supprimée.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Désactiver l'Add-On Wizard</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Désactive l'Add-On Wizard au démarrage.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Désactive la Telemetrie</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY_Help">Disables prompt and disables sending data to Mozilla. Disabling this will enable Telemetry.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS">Désactiver "À propos de vos droits"</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_DISABLERIGHTS_Help">Désactive l'apparition de "À propos de vos droits..." au premier lancement.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS">Paramètres Proxy</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_SOCKSV4">SOCKS v4</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_SOCKSV5">SOCKS v5</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_NOPRX">Aucun proxy</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_AUTO">Détection automatique de la configuration réseau</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USESYSTEM">Utiliser la configuration système</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_MANUALPRX">Configuration manuelle du proxy</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USEPAC">Utiliser la configuration automatique des URL (PAC)</string>	  
+    </stringTable>
+    <presentationTable>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DISPLAY_DROPDOWN" defaultItem="0">Afficher quand Firefox démarre</dropdownList>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGETEXT">
+          <label>Page d'accueil personnalisée</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_CUSTOMPAGETEXT">
+          <label>UserAgent personnalisé</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_CUSTOMPAGETEXT">
+          <label>URIs</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" defaultChecked="true">Désactiver les mises à jours automatique de Firefox</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" defaultChecked="true">Désactiver les mises à jours des extensions</checkBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_SEARCH" defaultChecked="true">Désactiver les mises à jours du moteur de recherche</checkBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS">
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSETTINGS_MODE" defaultItem="0">Type de proxy</dropdownList>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_HTTPPROXYADDR">
+          <label>Adresse HTTP du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYHTTPPORT">
+          <label>Port HTTP du serveur proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <checkBox refId="MOZILLA_FIREFOX_LOCKED_PROXYUSEHTTPSRV">Utiliser le proxy HTTP pour tous les protocoles</checkBox>                    
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLADDR">
+          <label>Adresse SSL du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSSLPORT">
+          <label>Port SSL du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>                      
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPADDR">
+          <label>Adresse FTP du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYFTPPORT">
+          <label>Port FTP du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <dropdownList refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSTYPE" defaultItem="0">Type du serveur Socks</dropdownList>  
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSADDR">
+          <label>Addresse Socks du proxy </label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYSOCKSPORT">
+          <label>Port Socks du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYAUTOCONFIGADDR">
+          <label>Adresse de configuration automatique du proxy</label>
+          <defaultValue></defaultValue>
+        </textBox>
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_PROXYEXCEPTIONS">
+          <label>Exceptions du proxy(liste séparée par des virgules)</label>
+          <defaultValue>127.0.0.1, localhost</defaultValue>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
