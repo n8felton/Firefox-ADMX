@@ -39,6 +39,7 @@ Dim strAllSettingsFile	:	strAllSettingsFile = ""
 Dim strOverrideFile		:	strOverrideFile = ""
 Dim bQB					:	bQB = False
 Dim bQN					:	bQN = True
+Dim ff64				:	ff64 = False
 
 checkArgs
 forceCScript
@@ -449,7 +450,10 @@ Sub determineArchitecture()
 	
 	Select Case strArch
 		Case "64"
-			baseRegistry = "HKLM\Software\Wow6432Node\Mozilla\Mozilla Firefox\"
+				baseRegistry = "HKLM\Software\Mozilla\Mozilla Firefox\"
+			Else
+				baseRegistry = "HKLM\Software\Wow6432Node\Mozilla\Mozilla Firefox\"
+			End If
 		Case "32"
 			baseRegistry = "HKLM\Software\Mozilla\Mozilla Firefox\"	
 	End Select
@@ -642,6 +646,8 @@ Sub checkArgs()
 				Case "/qn"
 					bQB = False
 					bQN = True
+				case "/64"
+					ff64 = True
 			End Select
 		Next
 	End If					
