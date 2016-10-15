@@ -450,6 +450,7 @@ Sub determineArchitecture()
 	
 	Select Case strArch
 		Case "64"
+			If ff64 = True Then
 				baseRegistry = "HKLM\Software\Mozilla\Mozilla Firefox\"
 			Else
 				baseRegistry = "HKLM\Software\Wow6432Node\Mozilla\Mozilla Firefox\"
