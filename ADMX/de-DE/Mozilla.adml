@@ -10,6 +10,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_BLANKPAGE">Leere Seite</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_CUSTOMPAGE">Benutzerdefinierte Startseite</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Standardseite</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Brauch User-Agent</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Deaktiviere Pr&#252;fung nach Standardbrowser</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Deaktiviere Import-Assistenten</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Deaktiviere Browser Miletone Seite</string>
@@ -22,6 +23,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">Unterdr&#252;cke die "Was ist neu"-Seite nach einem Update.
 
 Wenn Sie diese Richtlinie aktivieren, wird die Anzeige der folgenden Seite verhindert</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">&#220;berschreiben default user-agent</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD">Deaktiviere den Add-On Assistenten</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEADDONWIZARD_Help">Deaktiviere den Add-On Assistenten beim Start</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLETELEMETRY">Deaktiviere Telemetrie (Senden von Hintergrunddaten)</string>
