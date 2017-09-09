@@ -1,5 +1,5 @@
 ' Firefox ADMX
-' Version 0.1.3
+' Version 0.1.4
 '
 ' Author: Nathan Felton
 '
@@ -66,11 +66,25 @@ setDisableTelemetry
 setDisableRights
 setDisableBrowserMilestone
 setProxySettings
+setCertStoreSettings
+
+Sub setCertStoreSettings()
+	Dim keyUseCertSystemStore
+	keyUseCertSystemStore = getRegistryKey(policiesRegistry & "\UseCertSystemStore")
+	removePreference("security.enterprise_roots.enabled")
+	If keyUseCertSystemStore <> "" Then
+		writeLog "Enabling Use Windows Certificate Store"
+		Select Case keyUseCertSystemStore
+			Case 1
+				appendLockPreference "security.enterprise_roots.enabled","true",False
+		End Select
+	End If
+End Sub
 
 Sub setProxySettings()
 	'Variables used to store values that we get from the windows registry
 	Dim keyPrxType, keyAutoConfigUrl, keyFtpPrxaddr, keyFtpPrxPort, keyHttpPrxAddr, keyHttpPrxPort, disableProxyChanges
-	Dim keyPrxExceptions, keySocksPrxAddr, keySocksPrxPort, keySocksPrxVersion, keySslPrxAddr, keySslPrxPort, keyUseHttpForAll	
+	Dim keyPrxExceptions, keySocksPrxAddr, keySocksPrxPort, keySocksPrxVersion, keySslPrxAddr, keySslPrxPort, keyUseHttpForAll
 	'Variables used to store the firefox preferences that can be modified
 	Dim prefPrxType, prefAutoConfigUrl, prefFtpPrxaddr, prefFtpPrxPort, prefHttpPrxAddr, prefHttpPrxPort
 	Dim prefPrxExceptions, prefSocksPrxAddr, prefSocksPrxPort, prefSocksPrxVersion, prefSslPrxAddr, prefSslPrxPort
@@ -107,7 +121,7 @@ Sub setProxySettings()
 	keySocksPrxVersion = getRegistryKey(policiesRegistry & "\SocksServerType")
 	keySslPrxAddr = getRegistryKey(policiesRegistry & "\SSLProxyAddress")
 	keySslPrxPort = getRegistryKey(policiesRegistry & "\SSLProxyPort")
-	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto") 	
+	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto")
 	'Removes preferences from files
 	removePreference(prefPrxType)
 	removePreference(prefAutoConfigUrl)
