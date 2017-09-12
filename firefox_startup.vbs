@@ -39,6 +39,7 @@ Dim strLogLocation		:	strLogLocation = objEnv("TEMP") & "\FirefoxADMX.log"
 ' Global variables used by the various parts of the script.
 Dim policiesRegistry	:	policiesRegistry = "HKLM\Software\Policies\Mozilla\Firefox"
 Dim baseRegistry		:	baseRegistry = ""
+Dim firefoxFullVersion	:	firefoxFullVersion = ""
 Dim firefoxVersion		:	firefoxVersion = ""
 Dim firefoxMajorVersion	:	firefoxMajorVersion = ""
 Dim firefoxMinorVersion	:	firefoxMinorVersion = ""
@@ -445,19 +446,21 @@ Sub detectMozillaFirefoxVersion()
 	keyMozillaFirefoxPath32 = keySoftware32 & keyMozillaFirefox
 	
 	If objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath, arrSubKeys) = 0 Then
-		firefoxVersion = arrSubKeys(0)
-		baseRegistry = keyMozillaFirefoxPath & firefoxVersion
+		keyFirefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath & keyFirefoxVersion
 	ElseIf objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath32, arrSubKeys) = 0 Then
-		firefoxVersion = arrSubKeys(0)
-		baseRegistry = keyMozillaFirefoxPath32 & firefoxVersion
+		keyFirefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath32 & keyFirefoxVersion
 	Else
 		writeLog "Mozilla Firefox not installed. Exiting."
 		WScript.Quit(1)
 	End If
-	firefoxVersion = split(firefoxVersion,Chr(32))(0)
+	firefoxFullVersion  = keyFirefoxVersion
+	firefoxVersion      = split(keyFirefoxVersion,Chr(32))(0)
 	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
 	firefoxMinorVersion = split(firefoxVersion,Chr(46))(1)
 	firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
+	writeLog "Firefox Version: " & firefoxFullVersion
 End Sub
 
 Sub setDisableBrowserMilestone
