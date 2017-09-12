@@ -39,7 +39,11 @@ If you enable this policy, that page will be supressed.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_PROXY_AUTO">Autodetect network configuration</string>
       <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USESYSTEM">Use system configuration</string>
       <string id="MOZILLA_FIREFOX_LOCKED_PROXY_MANUALPRX">Manual proxy configuration</string>
-      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USEPAC">Use auto configuration URL (PAC)</string>	  
+      <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USEPAC">Use auto configuration URL (PAC)</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE">Use Windows Certificate Store</string>
+	  <string id="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE_Help">Automatically search for and import CAs that have been added to the Windows certificate store by a user or administrator.
+	  
+Requires Firefox 49 or above.</string>
     </stringTable>
     <presentationTable>
       <presentation id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE">
