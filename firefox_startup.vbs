@@ -1,5 +1,5 @@
 ' Firefox ADMX
-' Version 0.1.3
+' Version 0.3.0
 '
 ' Author: Nathan Felton
 '
@@ -22,7 +22,7 @@ Dim objArgs				: 	Set objArgs = WScript.Arguments
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 ' Script variables
-Dim strVersion			:	strVersion = "0.2.0"
+Dim strVersion			:	strVersion = "0.3.0"
 
 ' Variables required for logging.
 Dim fileLog
