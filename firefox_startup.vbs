@@ -13,10 +13,18 @@
 
 'On Error Resume Next
 
+' Registry Key Hive Constants
+Const HKCR = &H80000000 'HKEY_CLASSES_ROOT
+Const HKCU = &H80000001 'HKEY_CURRENT_USER
+Const HKLM = &H80000002 'HKEY_LOCAL_MACHINE
+Const HKUS = &H80000003 'HKEY_USERS
+Const HKCC = &H80000005 'HKEY_CURRENT_CONFIG
+
 Dim objShell			:   Set objShell = WScript.CreateObject("WScript.Shell")
 Dim objFSO				:	Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
 Dim objEnv				: 	Set objEnv = objShell.Environment("Process")
 Dim objWMIService		:	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Dim objRegistry			:   Set objRegistry = GetObject("winmgmts:!root/default:StdRegProv")
 Dim objArgs				: 	Set objArgs = WScript.Arguments
 
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
@@ -33,6 +41,8 @@ Dim policiesRegistry	:	policiesRegistry = "HKLM\Software\Policies\Mozilla\Firefo
 Dim baseRegistry		:	baseRegistry = ""
 Dim firefoxVersion		:	firefoxVersion = ""
 Dim firefoxMajorVersion	:	firefoxMajorVersion = ""
+Dim firefoxMinorVersion	:	firefoxMinorVersion = ""
+Dim firefoxPatchVersion	:	firefoxPatchVersion = ""
 Dim firefoxInstallDir	:	firefoxInstallDir = ""
 Dim strMozillaCfgFile	:	strMozillaCfgFile = ""
 Dim strAllSettingsFile	:	strAllSettingsFile = ""
@@ -44,6 +54,7 @@ checkArgs
 forceCScript
 generateLogFile
 
+detectMozillaFirefoxVersion
 locateInstallation
 
 setFileLocations
@@ -425,6 +436,30 @@ Sub setDisableRights()
 	End If	
 End Sub
 
+Sub detectMozillaFirefoxVersion()
+	' Prefer 64-bit OS and 64-bit Firefox
+	keySoftware = "Software\"
+	keySoftware32 = "Software\Wow6432Node\"
+	keyMozillaFirefox = "Mozilla\Mozilla Firefox\"
+	keyMozillaFirefoxPath = keySoftware & keyMozillaFirefox
+	keyMozillaFirefoxPath32 = keySoftware32 & keyMozillaFirefox
+	
+	If objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath, arrSubKeys) = 0 Then
+		firefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath & firefoxVersion
+	ElseIf objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath32, arrSubKeys) = 0 Then
+		firefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath32 & firefoxVersion
+	Else
+		writeLog "Mozilla Firefox not installed. Exiting."
+		WScript.Quit(1)
+	End If
+	firefoxVersion = split(firefoxVersion,Chr(32))(0)
+	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
+	firefoxMinorVersion = split(firefoxVersion,Chr(46))(1)
+	firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
+End Sub
+
 Sub setDisableBrowserMilestone
 	Dim keyDisableBrowserMilestone
 	keyDisableBrowserMilestone = getRegistryKey(policiesRegistry & "\DisableBrowserMilestone")
@@ -439,18 +474,6 @@ Sub setDisableBrowserMilestone
 End Sub
 
 Sub locateInstallation()
-	On Error Resume Next
-	firefoxVersion = objShell.RegRead(baseRegistry & "CurrentVersion")
-	If Err.Number <> 0 Then
-		writeLog "Mozilla Firefox not installed. Exiting."
-		Err.Clear
-		WScript.Quit(1)
-	End If
-	On Error GoTo 0
-	firefoxInstallDir = objShell.RegRead(baseRegistry & firefoxVersion & "\Main\Install Directory")
-	firefoxVersion = split(firefoxVersion,Chr(32))(0)
-	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
-	
 	'If the Firefox installation directory can not be found in the registry, use the default 32-bit OS location
 	'(C:\Program Files\Mozilla Firefox) by default.
 	If firefoxInstallDir = "" Then
