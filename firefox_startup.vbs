@@ -44,7 +44,6 @@ checkArgs
 forceCScript
 generateLogFile
 
-determineArchitecture
 locateInstallation
 
 setFileLocations
@@ -437,22 +436,6 @@ Sub setDisableBrowserMilestone
 				appendLockPreference "browser.startup.homepage_override.mstone","ignore",True
 		End Select
 	End If	
-End Sub
-
-Sub determineArchitecture()
-	Dim colArchitecture	: Set colArchitecture = objWMIService.ExecQuery("Select AddressWidth from Win32_Processor")
-	Dim objArch, strArch
-	
-	For Each objArch In colArchitecture
-		strArch = objArch.AddressWidth
-	Next
-	
-	Select Case strArch
-		Case "64"
-			baseRegistry = "HKLM\Software\Wow6432Node\Mozilla\Mozilla Firefox\"
-		Case "32"
-			baseRegistry = "HKLM\Software\Mozilla\Mozilla Firefox\"	
-	End Select
 End Sub
 
 Sub locateInstallation()
