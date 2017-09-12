@@ -474,7 +474,9 @@ Sub setDisableBrowserMilestone
 End Sub
 
 Sub locateInstallation()
-	'If the Firefox installation directory can not be found in the registry, use the default 32-bit OS location
+	objRegistry.GetStringValue HKLM, baseRegistry & "\Main", "Install Directory", firefoxInstallDir
+
+	'If the Firefox installation directory can not be found in the registry, use the default 64-bit OS location
 	'(C:\Program Files\Mozilla Firefox) by default.
 	If firefoxInstallDir = "" Then
 		firefoxInstallDir = objEnv("ProgramFiles") & "\Mozilla Firefox"
