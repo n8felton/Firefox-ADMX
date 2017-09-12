@@ -33,3 +33,7 @@
 	
 NOTE: This will the last update to the CHANGELOG.txt. All additonal changes will be noted in the
 	git commit messages.
+	
+0.1.4 (James Hawksworth / hawksface)
+- Added option to enable checking of System Certificate Store
+	* security.enterprise_roots.enabled

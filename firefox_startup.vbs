@@ -1,5 +1,5 @@
 ' Firefox ADMX
-' Version 0.1.3
+' Version 0.3.0
 '
 ' Author: Nathan Felton
 '
@@ -13,16 +13,24 @@
 
 'On Error Resume Next
 
+Const ForReading = 1, ForWriting = 2, ForAppending = 8
+
+' Registry Key Hive Constants
+Const HKCR = &H80000000 'HKEY_CLASSES_ROOT
+Const HKCU = &H80000001 'HKEY_CURRENT_USER
+Const HKLM = &H80000002 'HKEY_LOCAL_MACHINE
+Const HKUS = &H80000003 'HKEY_USERS
+Const HKCC = &H80000005 'HKEY_CURRENT_CONFIG
+
 Dim objShell			:   Set objShell = WScript.CreateObject("WScript.Shell")
 Dim objFSO				:	Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
 Dim objEnv				: 	Set objEnv = objShell.Environment("Process")
 Dim objWMIService		:	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+Dim objRegistry			:   Set objRegistry = GetObject("winmgmts:!root/default:StdRegProv")
 Dim objArgs				: 	Set objArgs = WScript.Arguments
 
-Const ForReading = 1, ForWriting = 2, ForAppending = 8
-
 ' Script variables
-Dim strVersion			:	strVersion = "0.2.0"
+Dim strVersion			:	strVersion = "0.3.0"
 
 ' Variables required for logging.
 Dim fileLog
@@ -31,8 +39,11 @@ Dim strLogLocation		:	strLogLocation = objEnv("TEMP") & "\FirefoxADMX.log"
 ' Global variables used by the various parts of the script.
 Dim policiesRegistry	:	policiesRegistry = "HKLM\Software\Policies\Mozilla\Firefox"
 Dim baseRegistry		:	baseRegistry = ""
+Dim firefoxFullVersion	:	firefoxFullVersion = ""
 Dim firefoxVersion		:	firefoxVersion = ""
 Dim firefoxMajorVersion	:	firefoxMajorVersion = ""
+Dim firefoxMinorVersion	:	firefoxMinorVersion = ""
+Dim firefoxPatchVersion	:	firefoxPatchVersion = ""
 Dim firefoxInstallDir	:	firefoxInstallDir = ""
 Dim strMozillaCfgFile	:	strMozillaCfgFile = ""
 Dim strAllSettingsFile	:	strAllSettingsFile = ""
@@ -44,7 +55,7 @@ checkArgs
 forceCScript
 generateLogFile
 
-determineArchitecture
+detectMozillaFirefoxVersion
 locateInstallation
 
 setFileLocations
@@ -66,11 +77,25 @@ setDisableTelemetry
 setDisableRights
 setDisableBrowserMilestone
 setProxySettings
+setCertStoreSettings
+
+Sub setCertStoreSettings()
+	Dim keyUseCertSystemStore
+	keyUseCertSystemStore = getRegistryKey(policiesRegistry & "\UseCertSystemStore")
+	removePreference("security.enterprise_roots.enabled")
+	If keyUseCertSystemStore <> "" Then
+		writeLog "Enabling Use Windows Certificate Store"
+		Select Case keyUseCertSystemStore
+			Case 1
+				appendLockPreference "security.enterprise_roots.enabled","true",False
+		End Select
+	End If
+End Sub
 
 Sub setProxySettings()
 	'Variables used to store values that we get from the windows registry
 	Dim keyPrxType, keyAutoConfigUrl, keyFtpPrxaddr, keyFtpPrxPort, keyHttpPrxAddr, keyHttpPrxPort, disableProxyChanges
-	Dim keyPrxExceptions, keySocksPrxAddr, keySocksPrxPort, keySocksPrxVersion, keySslPrxAddr, keySslPrxPort, keyUseHttpForAll	
+	Dim keyPrxExceptions, keySocksPrxAddr, keySocksPrxPort, keySocksPrxVersion, keySslPrxAddr, keySslPrxPort, keyUseHttpForAll
 	'Variables used to store the firefox preferences that can be modified
 	Dim prefPrxType, prefAutoConfigUrl, prefFtpPrxaddr, prefFtpPrxPort, prefHttpPrxAddr, prefHttpPrxPort
 	Dim prefPrxExceptions, prefSocksPrxAddr, prefSocksPrxPort, prefSocksPrxVersion, prefSslPrxAddr, prefSslPrxPort
@@ -107,7 +132,7 @@ Sub setProxySettings()
 	keySocksPrxVersion = getRegistryKey(policiesRegistry & "\SocksServerType")
 	keySslPrxAddr = getRegistryKey(policiesRegistry & "\SSLProxyAddress")
 	keySslPrxPort = getRegistryKey(policiesRegistry & "\SSLProxyPort")
-	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto") 	
+	keyUseHttpForAll = getRegistryKey(policiesRegistry & "\UseHTTPProxyForAllProto")
 	'Removes preferences from files
 	removePreference(prefPrxType)
 	removePreference(prefAutoConfigUrl)
@@ -426,6 +451,32 @@ Sub setDisableRights()
 	End If	
 End Sub
 
+Sub detectMozillaFirefoxVersion()
+	' Prefer 64-bit OS and 64-bit Firefox
+	keySoftware = "Software\"
+	keySoftware32 = "Software\Wow6432Node\"
+	keyMozillaFirefox = "Mozilla\Mozilla Firefox\"
+	keyMozillaFirefoxPath = keySoftware & keyMozillaFirefox
+	keyMozillaFirefoxPath32 = keySoftware32 & keyMozillaFirefox
+	
+	If objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath, arrSubKeys) = 0 Then
+		keyFirefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath & keyFirefoxVersion
+	ElseIf objRegistry.EnumKey(HKLM, keyMozillaFirefoxPath32, arrSubKeys) = 0 Then
+		keyFirefoxVersion = arrSubKeys(0)
+		baseRegistry = keyMozillaFirefoxPath32 & keyFirefoxVersion
+	Else
+		writeLog "Mozilla Firefox not installed. Exiting."
+		WScript.Quit(1)
+	End If
+	firefoxFullVersion  = keyFirefoxVersion
+	firefoxVersion      = split(keyFirefoxVersion,Chr(32))(0)
+	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
+	firefoxMinorVersion = split(firefoxVersion,Chr(46))(1)
+	firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
+	writeLog "Firefox Version: " & firefoxFullVersion
+End Sub
+
 Sub setDisableBrowserMilestone
 	Dim keyDisableBrowserMilestone
 	keyDisableBrowserMilestone = getRegistryKey(policiesRegistry & "\DisableBrowserMilestone")
@@ -439,36 +490,10 @@ Sub setDisableBrowserMilestone
 	End If	
 End Sub
 
-Sub determineArchitecture()
-	Dim colArchitecture	: Set colArchitecture = objWMIService.ExecQuery("Select AddressWidth from Win32_Processor")
-	Dim objArch, strArch
-	
-	For Each objArch In colArchitecture
-		strArch = objArch.AddressWidth
-	Next
-	
-	Select Case strArch
-		Case "64"
-			baseRegistry = "HKLM\Software\Wow6432Node\Mozilla\Mozilla Firefox\"
-		Case "32"
-			baseRegistry = "HKLM\Software\Mozilla\Mozilla Firefox\"	
-	End Select
-End Sub
-
 Sub locateInstallation()
-	On Error Resume Next
-	firefoxVersion = objShell.RegRead(baseRegistry & "CurrentVersion")
-	If Err.Number <> 0 Then
-		writeLog "Mozilla Firefox not installed. Exiting."
-		Err.Clear
-		WScript.Quit(1)
-	End If
-	On Error GoTo 0
-	firefoxInstallDir = objShell.RegRead(baseRegistry & firefoxVersion & "\Main\Install Directory")
-	firefoxVersion = split(firefoxVersion,Chr(32))(0)
-	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
-	
-	'If the Firefox installation directory can not be found in the registry, use the default 32-bit OS location
+	objRegistry.GetStringValue HKLM, baseRegistry & "\Main", "Install Directory", firefoxInstallDir
+
+	'If the Firefox installation directory can not be found in the registry, use the default 64-bit OS location
 	'(C:\Program Files\Mozilla Firefox) by default.
 	If firefoxInstallDir = "" Then
 		firefoxInstallDir = objEnv("ProgramFiles") & "\Mozilla Firefox"

@@ -180,5 +180,9 @@
         <text id="MOZILLA_FIREFOX_LOCKED_PROXYEXCEPTIONS" key="Software\Policies\Mozilla\Firefox" valueName="ProxyExceptions" />                
       </elements>
     </policy>
+	<policy name="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE_Help)" key="Software\Policies\Mozilla\Firefox" valueName="UseCertSystemStore">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+    </policy>
   </policies>
 </policyDefinitions>
