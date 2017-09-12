@@ -13,6 +13,8 @@
 
 'On Error Resume Next
 
+Const ForReading = 1, ForWriting = 2, ForAppending = 8
+
 ' Registry Key Hive Constants
 Const HKCR = &H80000000 'HKEY_CLASSES_ROOT
 Const HKCU = &H80000001 'HKEY_CURRENT_USER
@@ -26,8 +28,6 @@ Dim objEnv				: 	Set objEnv = objShell.Environment("Process")
 Dim objWMIService		:	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
 Dim objRegistry			:   Set objRegistry = GetObject("winmgmts:!root/default:StdRegProv")
 Dim objArgs				: 	Set objArgs = WScript.Arguments
-
-Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 ' Script variables
 Dim strVersion			:	strVersion = "0.3.0"
