@@ -257,8 +257,8 @@ Sub setNTLMAuthTrustedURIs()
 End Sub
 						
 Sub setKERBEROSAuthTrustedURIs()
-	Dim keyKERBOERSAuthTrustedURIs
-	keykerberosAuthTrustedURIs = getRegistryKey(policiesRegistry & "\KERBEROSAuthTrustedURIs")
+	Dim keyKERBEROSAuthTrustedURIs
+	keyKERBEROSAuthTrustedURIs = getRegistryKey(policiesRegistry & "\KERBEROSAuthTrustedURIs")
 	removePreference("network.negotiate-auth.delegation-uris")
 	If keyKERBEROSAuthTrustedURIs <> "" Then
 		writeLog "Setting KERBEROS-trusted URIs to " & keyKERBEROSAuthTrustedURIs
