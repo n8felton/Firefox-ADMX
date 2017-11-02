@@ -12,6 +12,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Default Page</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Custom Useragent</string>
       <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">NTLM Authentication Trusted URIs</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS">KERBEROS Authentication Trusted URIs</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Disable Default Browser Check</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Disable Import Wizard</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Disable Browser Miletone Page</string>
