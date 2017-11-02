@@ -22,6 +22,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Allows the customization of the homepage. You can choose to blank the home page or set a custom URL.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Allows the customization of the useragent. This overrides the entire useragent sent to the server.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">Comma-seperated list of FQDNs to allow NTLM authentication.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_Help">Comma-seperated list of FQDNs to allow KERBEROS authentication.</string>    
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supress "Firefox Updated" page after update</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">After updating Firefox, by default it display's a "What's New" page.
 
@@ -68,6 +69,13 @@ Requires Firefox 49 or above.</string>
           </defaultValue>
         </textBox>
       </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_CUSTOMPAGETEXT">
+          <label>URIs</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>	    
       <presentation id="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES">
         <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_FIREFOX" defaultChecked="true">Disable Firefox Automatic Update</checkBox>
         <checkBox refId="MOZILLA_FIREFOX_LOCKED_DISABLEUPDATES_EXTENSIONS" defaultChecked="true">Disable Extensions Updates</checkBox>
