@@ -66,6 +66,7 @@ cleanOldSettings
 setCustomHomepage
 setCustomUseragent
 setNTLMAuthTrustedURIs
+setKERBEROSAuthTrustedURIs
 setDisableDefaultCheck
 setDisableImport
 setDisableUpdates
@@ -254,6 +255,16 @@ Sub setNTLMAuthTrustedURIs()
 		appendLockPreference "network.automatic-ntlm-auth.trusted-uris",keyNTLMAuthTrustedURIs,True
 	End If
 End Sub
+						
+Sub setKERBEROSAuthTrustedURIs()
+	Dim keyKERBOERSAuthTrustedURIs
+	keykerberosAuthTrustedURIs = getRegistryKey(policiesRegistry & "\KERBEROSAuthTrustedURIs")
+	removePreference("network.negotiate-auth.delegation-uris")
+	If keyKERBEROSAuthTrustedURIs <> "" Then
+		writeLog "Setting KERBEROS-trusted URIs to " & keyKERBEROSAuthTrustedURIs
+		appendLockPreference "network.negotiate-auth.delegation-uris",keyKERBEROSAuthTrustedURIs,True
+	End If
+End Sub						
 
 Sub setDisableDefaultCheck
 	Dim keyDisableDefaultCheck
