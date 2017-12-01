@@ -497,11 +497,10 @@ Sub detectMozillaFirefoxVersion()
 		' Firefox patch version in FF Version.
         Dim tmpFireFoxVersion 
 		tmpFireFoxVersion = split(firefoxVersion,Chr(46))
-        
-		if ubound(tmpFireFoxVersion) = 3 then
+   	if ubound(tmpFireFoxVersion) = 2 then
 		firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
-        writeLog "firefoxPatchVersion: " & firefoxPatchVersion		
-		end if
+		writeLog "firefoxPatchVersion: " & firefoxPatchVersion		
+	end if
 	writeLog "Firefox Version: " & firefoxFullVersion
 	
 	
