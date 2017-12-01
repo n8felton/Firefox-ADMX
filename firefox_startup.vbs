@@ -480,12 +480,32 @@ Sub detectMozillaFirefoxVersion()
 		writeLog "Mozilla Firefox not installed. Exiting."
 		WScript.Quit(1)
 	End If
-	firefoxFullVersion  = keyFirefoxVersion
+        firefoxFullVersion  = keyFirefoxVersion
+        writeLog "Firefox Version: " & firefoxFullVersion
+
+
+
 	firefoxVersion      = split(keyFirefoxVersion,Chr(32))(0)
-	firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
-	firefoxMinorVersion = split(firefoxVersion,Chr(46))(1)
-	firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
+        writeLog "firefoxVersion: " & firefoxVersion
+
+		firefoxMajorVersion = split(firefoxVersion,Chr(46))(0)
+        writeLog "firefoxMajorVersion: " & firefoxMajorVersion
+	    firefoxMinorVersion = split(firefoxVersion,Chr(46))(1)
+        writeLog "firefoxMinorVersion: " & firefoxMinorVersion
+		
+        ' Fix for Firefox 57 issue, where there's only major and minor firefox version without
+		' Firefox patch version in FF Version.
+        Dim tmpFireFoxVersion 
+		tmpFireFoxVersion = split(firefoxVersion,Chr(46))
+        
+		if ubound(tmpFireFoxVersion) = 3 then
+		firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
+        writeLog "firefoxPatchVersion: " & firefoxPatchVersion		
+		end if
 	writeLog "Firefox Version: " & firefoxFullVersion
+	
+	
+	
 End Sub
 
 Sub setDisableBrowserMilestone
