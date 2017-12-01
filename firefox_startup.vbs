@@ -249,6 +249,7 @@ End Sub
 Sub setNTLMAuthTrustedURIs()
 	Dim keyNTLMAuthTrustedURIs
 	keyNTLMAuthTrustedURIs = getRegistryKey(policiesRegistry & "\NTLMAuthTrustedURIs")
+	keyNTLMAuthTrustedURIs = Trim(keyNTLMAuthTrustedURIs)
 	removePreference("network.automatic-ntlm-auth.trusted-uris")
 	If keyNTLMAuthTrustedURIs <> "" Then
 		writeLog "Setting NTLM-trusted URIs to " & keyNTLMAuthTrustedURIs
@@ -259,6 +260,7 @@ End Sub
 Sub setKERBEROSAuthTrustedURIs()
 	Dim keyKERBEROSAuthTrustedURIs
 	keyKERBEROSAuthTrustedURIs = getRegistryKey(policiesRegistry & "\KERBEROSAuthTrustedURIs")
+	keyKERBEROSAuthTrustedURIs = trim(keyKERBEROSAuthTrustedURIs)
 	removePreference("network.negotiate-auth.delegation-uris")
 	If keyKERBEROSAuthTrustedURIs <> "" Then
 		writeLog "Setting KERBEROS-trusted URIs to " & keyKERBEROSAuthTrustedURIs
@@ -497,10 +499,11 @@ Sub detectMozillaFirefoxVersion()
 		' Firefox patch version in FF Version.
         Dim tmpFireFoxVersion 
 		tmpFireFoxVersion = split(firefoxVersion,Chr(46))
-   	if ubound(tmpFireFoxVersion) = 2 then
+        
+		if ubound(tmpFireFoxVersion) = 2 then
 		firefoxPatchVersion = split(firefoxVersion,Chr(46))(2)
-		writeLog "firefoxPatchVersion: " & firefoxPatchVersion		
-	end if
+        writeLog "firefoxPatchVersion: " & firefoxPatchVersion		
+		end if
 	writeLog "Firefox Version: " & firefoxFullVersion
 	
 	
@@ -704,6 +707,11 @@ End Sub
 
 Function getRegistryKey(strKey)
 	On Error Resume Next
+	
+	set r = New RegExp
+	r.Global = True
+	r.Pattern =  "^\s+|\s+$"
+	
 	strKey = objShell.RegRead(strKey)
 	If Err.Number <> 0 Then
 		Select Case Err.Number
@@ -713,7 +721,7 @@ Function getRegistryKey(strKey)
 				writeLog "Error: " & Err.Number
 		End Select
 	Else
-		getRegistryKey = strKey
+		getRegistryKey = replace(r.Replace(strKey,""),vbLf,"")
 	End If
 	Err.Clear
 	On Error GoTo 0
