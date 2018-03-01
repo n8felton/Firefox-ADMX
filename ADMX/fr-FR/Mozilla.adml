@@ -41,8 +41,7 @@ Si vous activez cette police, cette page sera supprimée.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_PROXY_MANUALPRX">Configuration manuelle du proxy</string>
       <string id="MOZILLA_FIREFOX_LOCKED_PROXY_USEPAC">Utiliser la configuration automatique des URL (PAC)</string>	  
     <string id="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE">Utiliser le Magasin de Certificats Windows</string>
-	  <string id="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE_Help">Rechercher et importer automatiquement les CAs qui ont été ajoutées au magasin de certificats Windows par un utilisateur ou un administrateur
-.
+	  <string id="MOZILLA_FIREFOX_LOCKED_CERT_SYSTEM_STORE_Help">Rechercher et importer automatiquement les CAs qui ont été ajoutées au magasin de certificats Windows par un utilisateur ou un administrateur.
 	  
 Nécessite Firefox 49 ou supérieur.</string> 
     </stringTable>
