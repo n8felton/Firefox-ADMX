@@ -5,6 +5,7 @@ Work on this feature has been progressing according to plan, and its launch is s
 
 Because of this, further work on this project will be canceled.  This project will be frozen until after Firefox 60 is released.  Until then, this project will be available to assist with currently available versions of Firefox.
 
+Official Firefox 60 Policy GPO project: https://github.com/mozilla/policy-templates
  
  # Installation
 
