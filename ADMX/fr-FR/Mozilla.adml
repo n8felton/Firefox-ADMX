@@ -12,6 +12,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_DEFAULTPAGE">Page par défaut</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT">Useragent personnalisé</string>
       <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">Authentification NTLM URIs de confiance</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS">Authentification KERBEROS URIs de confiance</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK">Désactiver la vérification du navigateur par défaut</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEIMPORT">Désactiver le wizard d'import</string>
       <string id="MOZILLA_FIREFOX_LOCKED_DISABLEBROWSERMILESTONE">Désactiver la page moment-clé</string>
@@ -22,6 +23,7 @@
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_HOMEPAGE_Help">Autoriser la personnalisation de la page d'accueil. Vous pouvez choisir une page vide ou définir une URL.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_CUSTOM_USERAGENT_Help">Autoriser la personnalisation du useragent. Ce paramètre écrase l'useragent envoyé au serveur.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_Help">FQDN liste séparée par des virgules pour l'authentification NTLM.</string>
+      <string id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_Help">FQDN liste séparée par des virgules pour l'authentification KERBEROS.</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE">Supprimer la page "Firefox mis à jour" après une mise à jour</string>
       <string id="MOZILLA_FIREFOX_LOCKED_SUPRESSUPDATEPAGE_Help">Après avoir mis à jour Firefox, par défaut, une page "Quoi de neuf" est affichée.
 
@@ -63,6 +65,13 @@ Nécessite Firefox 49 ou supérieur.</string>
       </presentation>
       <presentation id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS">
         <textBox refId="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_CUSTOMPAGETEXT">
+          <label>URIs</label>
+          <defaultValue>
+          </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS">
+        <textBox refId="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_CUSTOMPAGETEXT">
           <label>URIs</label>
           <defaultValue>
           </defaultValue>

@@ -51,6 +51,13 @@
         <text id="MOZILLA_FIREFOX_LOCKED_NTLM_TRUSTED_URIS_CUSTOMPAGETEXT" key="Software\Policies\Mozilla\Firefox" valueName="NTLMAuthTrustedURIs" />
       </elements>
     </policy>
+    <policy name="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS)" explainText="$(string.MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_Help)" presentation="$(presentation.MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS)" key="Software\Policies\Mozilla\Firefox" valueName="KERBEROSAuth">
+      <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <text id="MOZILLA_FIREFOX_LOCKED_KERBEROS_TRUSTED_URIS_CUSTOMPAGETEXT" key="Software\Policies\Mozilla\Firefox" valueName="KERBEROSAuthTrustedURIs" />
+      </elements>
+    </policy>	  
     <policy name="MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK" class="Machine" displayName="$(string.MOZILLA_FIREFOX_LOCKED_DISABLEDEFAULTCHECK)" key="Software\Policies\Mozilla\Firefox" valueName="DisableDefaultCheck">
       <parentCategory ref="MOZILLA_FIREFOX_LOCKED" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
